@@ -1,0 +1,96 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional HTML Page</title>
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.new_user {
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+    background-color: #2acfe5;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+    </style>
+    {% if title %}
+        <title>Django Blog -{{ title }}</title>
+    {% else %}
+        <title>Django Blog</title>
+    {% endif %}
+</head>
+
+{% block content %}
+
+    <div class="container text-center bg-light m-3 p-5 margin_check text-info">
+        <form class="form" method="post" action="{% url 'blog-log_in' %}">
+            <h2>Login</h2>
+            {% csrf_token %}
+        <div class="m-3 " >
+            <input type="text" name="username" placeholder="Username" required>
+        </div>
+        <div class="m-3">
+            <input type="password" name="password" placeholder="Password" required> 
+        </div class="m-5">
+            <button type="submit" >Login</button>
+        </form>
+    
+    <div class="new_user text-center bg-light m-3  p-5 margin_check text-info">
+        <a href="{% url 'blog-sign_up' %}">Sign Up Here First</a>
+    </div>
+</div>
+{% endblock content%}

@@ -1,0 +1,90 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional HTML Page</title>
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+    </style>
+    {% if title %}
+        <title>Django Blog -{{ title }}</title>
+    {% else %}
+        <title>Django Blog</title>
+    {% endif %}
+</head>
+
+{% block content %}
+    <div class="container text-center bg-light m-3 p-5 margin_check text-info">
+        <form class="form" method="post" action="{% url 'blog-sign_up' %}">
+            <h2>Sign Up</h2>
+            {% csrf_token %}
+        <div class="username text-center bg-light m-3 margin_check text-info">
+            <input type="text" name="username" placeholder="Username" required>
+        </div>
+        <div class="mb-3">
+            <input type="email" name="email" placeholder="Email" required>
+        </div>
+        <div class="mb-3 p-5">
+            <input type="text" name="phone" placeholder="Phone Number" pattern="[0-9]{10}"  required>
+        </div>
+        <div class="mb-3">
+            <input type="password" name="password1" placeholder="Password" required>
+        </div>
+        <div class="mb-3 m-3">
+            <input type="password" name="password2" placeholder="Confirm Password" required>
+        </div>
+        <div>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+</div>
+    {% endblock content%}

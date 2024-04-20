@@ -1,0 +1,94 @@
+{% extends 'blog/base.html'%}
+{% block content %}
+    {% for post in posts %}
+    <article class="media content-section">
+        <div class="media-body">
+          <div class="article-metadata">
+            <a class="mr-2" href="https://www.instagram.com/its_5id/">{{ post.author }}</a>
+            <small class="text-muted">{{ post.date_posted }}</small>
+          </div>
+          <h2><a class="article-title" href="https://docs.djangoproject.com/en/stable/">{{ post.title }}</a></h2>
+          <p class="article-content">{{ post.content }}</p>
+        </div>
+      </article>
+    {% endfor %}
+    <article class="media content-section">
+      <div class="media-body">
+        <div class="article-metadata">
+          <div class="col-md-8"><h2>Django Installation Guide</h2>
+        </div>
+      
+    <h2>Installing Python</h2>
+
+    <h3>Linux</h3>
+
+    <pre><code>sudo apt update
+sudo apt install python3 python3-pip</code></pre>
+
+    <h3>Windows</h3>
+
+    <p>Download Python installer from <a href="https://www.python.org/downloads/">Python.org</a>. Run the installer, ensure "Add Python to PATH" is checked, and proceed with installation.</p>
+  </div>
+  <div class="media-body">
+    <div class="article-metadata">
+    <h2>Installing Django</h2>
+  </div>
+    <pre><code>pip install django</code></pre>
+  </div>
+  <div class="media-body">
+    <div class="article-metadata">
+    <h2>Setting up a Django Project</h2>
+<div>
+</div>
+    <pre><code>mkdir myproject
+cd myproject
+django-admin startproject myproject</code></pre></div>
+
+    <h2>Running Django Server</h2>
+
+    <pre><code>python manage.py runserver</code></pre>
+
+    <p>Open your web browser and go to <code>http://127.0.0.1:8000/</code> to see your Django website.</p>
+
+    <h2>Simple HTML and CSS Code</h2>
+
+    <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Simple HTML Page&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            color: #333;
+        }
+        
+        p {
+            color: #666;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;h2&gt;Welcome to My Simple Website&lt;/h2&gt;
+        &lt;p&gt;This is a simple HTML page styled with CSS.&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre></div></article>
+{% endblock content %}
+
+
